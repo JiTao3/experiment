@@ -1,4 +1,7 @@
 /.git
 /.vscode
+/.ipynb_checkpoints
+
+
 *.npy
 *.txt
