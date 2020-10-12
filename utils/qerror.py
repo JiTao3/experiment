@@ -24,9 +24,6 @@ def print_qerror(pred, label):
     print("Max: {}".format(np.max(qerror)))
     print("Mean: {}".format(np.mean(qerror)))
 
-def log_transform(data):
-    data = np.array(data)
-    return np.log2(data)
 
 def compute_quantiles(features,
                       num_keypoints=10,

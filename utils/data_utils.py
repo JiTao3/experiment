@@ -13,3 +13,17 @@ def random_from_data(data, label, size):
     label_sample = label[idx]
     return data_sample, label_sample
 
+
+def log_transform(data):
+    data = np.array(data)
+    return np.log2(data)
+
+
+def selectativity_transform(data, max_cardinality):
+    return data / max_cardinality
+
+
+def bound_result(result, min_bound, max_bound):
+    result = np.where(result < min_bound, min_bound, result)
+    result = np.where(result > max_bound, max_bound, result)
+    return result
