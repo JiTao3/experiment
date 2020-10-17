@@ -36,14 +36,14 @@ def cdf_range_3d(lattice_model, featuer):
     xllh = [x1l, x2l, x3h]
     xlll = [x1l, x2l, x3l]
 
-    xhhh_p = np.exp(lattice_model.predict(xhhh))
-    xhhl_p = np.exp(lattice_model.predict(xhhl))
-    xhlh_p = np.exp(lattice_model.predict(xhlh))
-    xlhh_p = np.exp(lattice_model.predict(xlhh))
-    xhll_p = np.exp(lattice_model.predict(xhll))
-    xlhl_p = np.exp(lattice_model.predict(xlhl))
-    xllh_p = np.exp(lattice_model.predict(xllh))
-    xlll_p = np.exp(lattice_model.predict(xlll))
+    xhhh_p = lattice_model.predict(xhhh)
+    xhhl_p = lattice_model.predict(xhhl)
+    xhlh_p = lattice_model.predict(xhlh)
+    xlhh_p = lattice_model.predict(xlhh)
+    xhll_p = lattice_model.predict(xhll)
+    xlhl_p = lattice_model.predict(xlhl)
+    xllh_p = lattice_model.predict(xllh)
+    xlll_p = lattice_model.predict(xlll)
 
     pres = xhhh_p - xhhl_p - xhlh_p - xlhh_p + xhll_p + xlhl_p + xllh_p - xlll_p
 

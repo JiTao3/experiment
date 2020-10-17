@@ -51,9 +51,14 @@ def compute_quantiles(features,
       interpolation='nearest').astype(float)
 
 def q_error_loss(label, pred):
-    label = tf.where(tf.equal(label, 0), tf.ones_like(label), label)
-    q1 = tf.divide(label,pred)
-    q2 = tf.divide(pred,label)
+    label = tf.where(tf.equal(label, 0), tf.convert_to_tensor(1e-10), label)
+    pred = tf.where(tf.equal(pred, 0), tf.convert_to_tensor(1e-10), pred)
+    label = tf.math.exp(label)
+    pred = tf.math.exp(pred)
+    # label = tf.math.multiply(label,581012)
+    # pred = tf.math.multiply(pred,581012)
+    q1 = tf.math.divide(label,pred)
+    q2 = tf.math.divide(pred,label)
     q = tf.math.maximum(q1,q2)
-    return tf.math.subtract(tf.reduce_mean(q,axis=-1),1)
+    return tf.math.subtract(tf.reduce_mean(q,axis=-1),1)   
     

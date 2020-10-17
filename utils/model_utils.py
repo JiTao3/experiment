@@ -46,7 +46,7 @@ def train_multi_models(
             # callbacks=callback,
         )
         train_endtime = datetime.datetime.now()
-    print("training time: ", (train_endtime - train_starttime))
+        print("training time: ", (train_endtime - train_starttime))
     return models
 
 
