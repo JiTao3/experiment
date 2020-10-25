@@ -1,0 +1,1 @@
+nohup python lattice/lattice_datasize.py -s 2020 > out/datasize/datasize.s2020.result.out 2>&1 &

@@ -15,6 +15,9 @@ from tensorflow import feature_column as fc
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
 from scipy.spatial import distance
+sys.path.append(os.path.abspath(os.getcwd()))
+
+from utils.data_utils import bound_result
 
 
 def cdf_range_3d(lattice_model, featuer):
@@ -36,14 +39,14 @@ def cdf_range_3d(lattice_model, featuer):
     xllh = [x1l, x2l, x3h]
     xlll = [x1l, x2l, x3l]
 
-    xhhh_p = lattice_model.predict(xhhh)
-    xhhl_p = lattice_model.predict(xhhl)
-    xhlh_p = lattice_model.predict(xhlh)
-    xlhh_p = lattice_model.predict(xlhh)
-    xhll_p = lattice_model.predict(xhll)
-    xlhl_p = lattice_model.predict(xlhl)
-    xllh_p = lattice_model.predict(xllh)
-    xlll_p = lattice_model.predict(xlll)
+    xhhh_p = bound_result(lattice_model.predict(xhhh), 0.0, 1.0)
+    xhhl_p = bound_result(lattice_model.predict(xhhl), 0.0, 1.0)
+    xhlh_p = bound_result(lattice_model.predict(xhlh), 0.0, 1.0)
+    xlhh_p = bound_result(lattice_model.predict(xlhh), 0.0, 1.0)
+    xhll_p = bound_result(lattice_model.predict(xhll), 0.0, 1.0)
+    xlhl_p = bound_result(lattice_model.predict(xlhl), 0.0, 1.0)
+    xllh_p = bound_result(lattice_model.predict(xllh), 0.0, 1.0)
+    xlll_p = bound_result(lattice_model.predict(xlll), 0.0, 1.0)
 
     pres = xhhh_p - xhhl_p - xhlh_p - xlhh_p + xhll_p + xlhl_p + xllh_p - xlll_p
 

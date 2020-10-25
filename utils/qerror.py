@@ -17,11 +17,11 @@ def print_qerror(pred, label):
             qerror.append(float(pred[i]) / float(label[i]))
         else:
             qerror.append(float(label[i]) / float(pred[i]))
-    print("Median: {}".format(np.median(qerror)))
-    print("90th percentile: {}".format(np.percentile(qerror, 90)))
-    print("95th percentile: {}".format(np.percentile(qerror, 95)))
-    print("99th percentile: {}".format(np.percentile(qerror, 99)))
-    print("Max: {}".format(np.max(qerror)))
+    print("Median: {}\n".format(np.median(qerror)))
+    print("90th percentile: {}\n".format(np.percentile(qerror, 90)))
+    print("95th percentile: {}\n".format(np.percentile(qerror, 95)))
+    print("99th percentile: {}\n".format(np.percentile(qerror, 99)))
+    print("Max: {}\n".format(np.max(qerror)))
     print("Mean: {}".format(np.mean(qerror)))
 
 
