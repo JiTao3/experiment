@@ -17,7 +17,7 @@ from sklearn.linear_model import LinearRegression
 from scipy.spatial import distance
 sys.path.append(os.path.abspath(os.getcwd()))
 
-from utils.data_utils import bound_result
+from data_utils import bound_result
 
 
 def cdf_range_3d(lattice_model, featuer):

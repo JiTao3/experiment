@@ -5,8 +5,8 @@ import tensorflow as tf
 from tensorflow import keras
 
 sys.path.append(os.path.abspath(os.getcwd()))
-from utils.cdf_range import cdf_range_3d
-from utils.data_utils import bound_result
+from cdf_range import cdf_range_3d
+from data_utils import bound_result
 
 
 def clone(model, N=3):
